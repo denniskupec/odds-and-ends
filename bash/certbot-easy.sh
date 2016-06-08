@@ -13,9 +13,6 @@ work_dir=$(pwd)/certbot
 logs_dir=$work_dir/logs
 useragent="$(lsb_release -sd), $(uname -mrs)"
 
-# kill nginx since it blocks ports 80,443
-pgrep "nginx" > /dev/null && service nginx stop
-
 [ ! -d "$work_dir" ] && ln -s /etc/letsencrypt $(pwd)/certbot
 
 certbot certonly -v -t -n --agree-tos --standalone \
@@ -24,7 +21,7 @@ certbot certonly -v -t -n --agree-tos --standalone \
   --rsa-key-size $rsa_key_size \
   --work-dir $work_dir \
   --logs-dir $logs_dir \
+  --pre-hook 'service nginx stop' \
+  --post-hook 'service nginx restart' \
   --user-agent '$useragent' \
   --standalone-supported-challenges tls-sni-01
-
-service nginx restart
