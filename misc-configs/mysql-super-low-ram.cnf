@@ -1,0 +1,65 @@
+# Low RAM VPS Config
+# MySQL Version 5.5.44
+#
+# Not responsible if your shit goes up in flames...
+# Tested on Mac OS 10.11 and Debian 8 x64
+#
+# SolusVM Screenshot: http://i.imgur.com/R8miCqq.png
+# Running: nginx (1.6.2), php5-fpm (5.6), mysql (5.5)
+
+[client]
+port					= 5119
+socket					= /var/run/mysqld/mysqld.sock
+
+[mysqld_safe]
+socket					= /var/run/mysqld/mysqld.sock
+nice					= 0
+
+[mysqld]
+user					= mysql
+pid-file				= /var/run/mysqld/mysqld.pid
+socket					= /var/run/mysqld/mysqld.sock
+port					= 5119
+basedir					= /usr
+datadir					= /var/lib/mysql
+tmpdir					= /tmp
+lc-messages-dir			= /usr/share/mysql
+default-storage-engine	= MyISAM
+innodb_buffer_pool_size	= 32M
+innodb_log_buffer_size	= 512K
+bind-address			= 0.0.0.0
+key_buffer_size			= 16K
+max_allowed_packet		= 1M
+thread_stack			= 64K
+thread_cache_size		= 8
+myisam-recover			= BACKUP
+max_connections			= 25
+table_cache				= 4
+sort_buffer_size		= 64K
+thread_concurrency		= 10
+query_cache_limit		= 1M
+query_cache_size		= 1M
+tmp_table_size			= 12M
+log_error				= /var/log/mysql/error.log
+expire_logs_days		= 10
+skip-external-locking
+
+[mysqldump]
+max_allowed_packet		= 1M
+quick
+quote-names
+
+[mysql]
+no-auto-rehash
+
+[isamchk]
+key_buffer 				= 8M
+sort_buffer_size		= 8M
+
+[myisamchk]
+key_buffer_size			= 16K
+sort_buffer_size		= 64K
+read_buffer				= 2M
+write_buffer			= 2M
+
+!includedir /etc/mysql/conf.d/

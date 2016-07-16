@@ -1,36 +1,41 @@
 {
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_delay": 20,
-	"theme": "Spacegray Eighties.sublime-theme",
-	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Twilight.tmTheme",
 	"create_window_at_startup": true,
+	"default_line_ending": "unix",
 	"detect_indentation": false,
 	"drag_text": false,
 	"draw_white_space": "selected",
 	"ensure_newline_at_eof_on_save": true,
-	"font_face": "Monaco",
+	"font_face": "Menlo",
 	"font_options":
 	[
 		"no_round",
 		"no_bold",
-		"gray_antialias"
+		"directwrite"
 	],
-	"font_size": 12,
+	"font_size": 10,
 	"gpu_window_buffer": "true",
 	"gutter": true,
 	"highlight_line": true,
 	"hot_exit": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"line_numbers": true,
 	"margin": 2,
 	"open_files_in_new_window": false,
 	"overlay_scroll_bars": "true",
 	"scroll_past_end": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"soda_folder_icons": false,
 	"tab_size": 2,
+	"theme": "Soda Dark.sublime-theme",
 	"translate_tabs_to_spaces": false,
 	"trim_automatic_white_space": true,
-	"word_wrap": false,
-	"ignored_packages":
-	[
-		"Vintage"
-	]
+	"use_tab_stops": true,
+	"word_wrap": false
 }

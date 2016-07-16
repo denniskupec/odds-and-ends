@@ -1,0 +1,22 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Deviot",
+		"Golang Tools Integration",
+		"nginx",
+		"Package Control",
+		"PowerShell",
+		"Python 3",
+		"REG",
+		"SideBarEnhancements",
+		"SideBarGit",
+		"Theme - Soda",
+		"TOML",
+		"VBScript"
+	]
+}
