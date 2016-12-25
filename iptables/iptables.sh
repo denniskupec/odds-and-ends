@@ -1,6 +1,8 @@
 #!/bin/sh
 # updated 12/25/16
 
+iptables -F
+iptables -t nat -F
 iptables -X
 
 iptables -P INPUT ACCEPT
@@ -30,4 +32,3 @@ iptables -A INPUT -p udp --dport 9987 -j ACCEPT
 
 iptables -A INPUT -j DROP
 
-. $HOME/bin/fw/ip6tables.sh
