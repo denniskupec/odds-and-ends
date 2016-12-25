@@ -9,10 +9,11 @@ iptables -P FORWARD ACCEPT
 
 # allow loopback
 iptables -A INPUT -i lo -j ACCEPT
-iptables -A OUTPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
 
 # openvpn
 iptables -t nat -A POSTROUTING -s 10.10.0.0/16 -o eth0 -j MASQUERADE
+iptables -A INPUT --dport 542 -j ACCEPT
 
 # the basics (related/established, icmp echo, ssh)
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
