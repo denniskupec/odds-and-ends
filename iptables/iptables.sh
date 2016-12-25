@@ -1,6 +1,12 @@
 #!/bin/sh
 # updated 12/25/16
 
+iptables -X
+
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+
 # allow loopback
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -i lo -j ACCEPT
