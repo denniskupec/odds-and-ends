@@ -13,7 +13,7 @@ iptables -A OUTPUT -o lo -j ACCEPT
 
 # openvpn
 iptables -t nat -A POSTROUTING -s 10.10.0.0/16 -o eth0 -j MASQUERADE
-iptables -A INPUT --dport 542 -j ACCEPT
+iptables -A INPUT -p udp --dport 542 -j ACCEPT
 
 # the basics (related/established, icmp echo, ssh)
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
