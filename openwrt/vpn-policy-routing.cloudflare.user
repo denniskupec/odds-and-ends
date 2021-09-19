@@ -1,0 +1,6 @@
+#!/bin/sh
+
+TARGET_IPSET="wan"
+
+curl -s https://www.cloudflare.com/ips-v4 | \
+awk -v ipset="$TARGET_IPSET" '{print "add " ipset " " $1}' | ipset restore -!
