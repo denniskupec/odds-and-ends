@@ -1,0 +1,9 @@
+#!/bin/sh
+
+TARGET_IPSET="wireguard"
+
+curl -s https://raw.githubusercontent.com/SteamDatabase/SteamTracking/master/Random/NetworkDatagramConfig.json | \
+jq -r '.pops[] | if .groups | contains(["steam-china"]) then empty else .relays[].ipv4,.service_address_ranges[]? end' | \
+awk -v ipset="$TARGET_IPSET" '{print "add " ipset " " $1}' | \
+ipset restore -!
+
